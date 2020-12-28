@@ -4,6 +4,12 @@ const User = require('../models/user')
 
 const router = express.Router()
 
+router.get('/users', async (req, res) => {
+    const user = connection('users').select('*')
+
+        return res.json(user)
+})
+
 router.post('/register', async (req, res) => {
     const { email } = req.body
     
