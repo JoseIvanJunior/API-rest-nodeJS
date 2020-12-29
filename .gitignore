@@ -1,4 +1,5 @@
 
 # Node modules
 node_modules
-.env
+
+# Porque questão de testes irei deixar a configuração das variavéis disponíveis

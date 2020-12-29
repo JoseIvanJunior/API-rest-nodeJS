@@ -15,13 +15,13 @@ function generateToken(params = {}) {
 }
 
 router.get('/users', async (req, res) => {
-    User.find((error, response) => {
-        if (error) {
-            return next(error)
-        } else {
-            res.status(200).json(response)
-        }
-    })
+    try {
+        const user = await User.find()
+
+        return res.send({ user })
+    } catch (error) {
+        return res.status(400).send({ error: 'Error loading user' })
+    }
 })
 
 router.post('/register', async (req, res) => {

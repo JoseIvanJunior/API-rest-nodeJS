@@ -1,9 +1,9 @@
 const mongoose = require('../database')
-//const User = require('./User')
 
 const MessageSchema = new mongoose.Schema({
-    author: {
-        type: String,
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
         required: true
     },
     title: {
@@ -14,7 +14,6 @@ const MessageSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    //email: {},
     createdAt: {
         type: Date,
         default: Date.now
