@@ -1,6 +1,6 @@
 const express = require('express')
-
-const routes = require('./routes')
+require('dotenv/config');
+//const routes = require('./routes')
 
 const app = express()
 
@@ -8,9 +8,10 @@ const app = express()
 app.use(express.json())
 //app.use(routes)
 
-const PORT = process.env.PORT || 3333
+require('./controllers/AuthController')(app)
+require('./controllers/MessageController')(app)
 
-require('./controllers/authController')(app)
+const PORT = process.env.PORT || process.env.APP_URL
 
 app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`)

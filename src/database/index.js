@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
+require('dotenv/config');
 
-mongoose.connect('mongodb+srv://root:1q2w3e4r@cluster0.ntoku.mongodb.net/mycruddb?retryWrites=true&w=majority',
+mongoose.connect(process.env.MONGODB_URI,
     { useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true
